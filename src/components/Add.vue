@@ -62,9 +62,9 @@ export default {
                     profession: this.cust.profession,
                     profile: this.cust.profile
                 }
-                this.$http.post("https://wd8704874238afnnlu.wilddogio.com/posts.json", newCust).then(res => {
+                this.$axios.post("https://wd8704874238afnnlu.wilddogio.com/posts.json", newCust).then(res => {
                     // console.log(res)
-                    this.$router.push({ path:'/', query: { alert: "用户信息添加成功！" } })
+                    this.$router.push({ path: '/', query: { alert: "用户信息添加成功！" } })
 
                 })
                 e.preventDefault();

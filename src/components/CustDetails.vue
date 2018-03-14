@@ -58,13 +58,13 @@ export default {
     },
     methods: {
         fetch() {
-            this.$http.get("https://wd8704874238afnnlu.wilddogio.com/posts/" + this.id + ".json").then(res => {
+            this.$axios.get("https://wd8704874238afnnlu.wilddogio.com/posts/" + this.id + ".json").then(res => {
                 // console.log(res)
-                this.customer = res.body
+                this.customer = res.data
             })
         },
         delCust() {
-            this.$http.delete("https://wd8704874238afnnlu.wilddogio.com/posts/" + this.id + ".json").then(res => {
+            this.$axios.delete("https://wd8704874238afnnlu.wilddogio.com/posts/" + this.id + ".json").then(res => {
                 this.$router.push({ path: '/', query: { alert: '用户删除成功！' } })
             })
         }

@@ -40,17 +40,17 @@ export default {
     },
     methods: {
         fetch() {
-            this.$http.get('https://wd8704874238afnnlu.wilddogio.com/posts.json').then(res => {
-                // console.log(res.body)
-                return res.json()
-            }).then(res => {
-                const custArray = []
-                for (var key in res) {
-                    res[key].id = key
-                    custArray.push(res[key])
-                }
-                this.custs = custArray
-            })
+            this.$axios.get('https://wd8704874238afnnlu.wilddogio.com/posts.json')
+                .then(res => {
+                    const response = res.data
+                    const custArray = []
+                    for (var key in response) {
+                        // console.log(key)
+                        response[key].id = key
+                        custArray.push(response[key])
+                    }
+                    this.custs = custArray
+                })
         },
         filterBy(custs, filterInput) {
             return custs.filter(cust => {

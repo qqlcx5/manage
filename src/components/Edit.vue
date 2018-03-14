@@ -54,9 +54,9 @@ export default {
     },
     methods: {
         fetch() {
-            this.$http.get("https://wd8704874238afnnlu.wilddogio.com/posts/" + this.id + ".json").then(res => {
+            this.$axios.get("https://wd8704874238afnnlu.wilddogio.com/posts/" + this.id + ".json").then(res => {
                 // console.log(res.body)
-                this.cust = res.body
+                this.cust = res.data
             })
         },
         updateCust(e) {
@@ -73,7 +73,7 @@ export default {
                 //     profile: this.cust.profile
                 // }
                 let updateCust = this.cust
-                this.$http.put("https://wd8704874238afnnlu.wilddogio.com/posts/" + this.id + ".json", updateCust).then(res => {
+                this.$axios.put("https://wd8704874238afnnlu.wilddogio.com/posts/" + this.id + ".json", updateCust).then(res => {
                     // console.log(res)
                     this.$router.push({ path: '/', query: { alert: "用户信息更新成功！" } })
                 })
