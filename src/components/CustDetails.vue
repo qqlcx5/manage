@@ -4,7 +4,7 @@
         <h1 class="page-header">
         {{customer.name}}
     <span class="pull-right">
-        <router-link class='btn btn-primary' :to="'/edit/'+ this.id">编辑</router-link>
+        <router-link class='btn btn-primary' :to="{name:'Edit',params:{id:id}}">编辑</router-link>
         <button class="btn btn-danger" @click="delCust">删除</button>
     </span>
     </h1>
@@ -59,7 +59,7 @@ export default {
     methods: {
         fetch() {
             this.$http.get("https://wd8704874238afnnlu.wilddogio.com/posts/" + this.id + ".json").then(res => {
-                console.log(res)
+                // console.log(res)
                 this.customer = res.body
             })
         },
@@ -69,10 +69,11 @@ export default {
             })
         }
     },
-    created(){
+    created() {
         this.fetch()
     }
 }
+
 </script>
 <style scoped>
 

@@ -19,7 +19,8 @@
                     <td>{{cust.phone}}</td>
                     <td>{{cust.email}}</td>
                     <td>
-                        <router-link class='btn btn-default' :to="'/cust/'+cust.id">详细</router-link>
+                        <router-link class='btn btn-default' :to="{name:'CustDetails',params:{id:cust.id}}
+">详细</router-link>
                     </td>
                 </tr>
             </tbody>
@@ -42,10 +43,10 @@ export default {
             this.$http.get('https://wd8704874238afnnlu.wilddogio.com/posts.json').then(res => {
                 // console.log(res.body)
                 return res.json()
-            }).then(res =>{
-                const custArray=[]
-                for(var key in res){
-                    res[key].id = key                
+            }).then(res => {
+                const custArray = []
+                for (var key in res) {
+                    res[key].id = key
                     custArray.push(res[key])
                 }
                 this.custs = custArray
